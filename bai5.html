@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    table{
+        width: 500px;
+        text-align: center;
+        margin-top: 30px;
+    }
+</style>
+<body>
+    <input type="text" id="input" placeholder="Nhập tên nhân viên"><button onclick="save()">Save</button>
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Tên</th>
+            <th colspan="2">Quản lý</th>
+        </tr>
+        <tbody id="listMember"></tbody>
+        <!-- <tr>
+            <td >stt</td>
+            <td>ten</td>
+            <td>delele</td>
+            <td>update</td>
+        </tr> -->
+    </table>
+</body>
+<script>
+    // let memberArr = [
+    //     {name: "Chuan"},
+    //     {name: "Vuong"},
+    //     {name: "Ha"}
+    // ];
+
+    // let listMember = localStorage.setItem('listMember', JSON.stringify(memberArr));
+
+    let listMember = JSON.parse(localStorage.getItem('listMember'));
+    let data = "";
+    function drawTable(){
+    for(i = 0; i < listMember.length; i++){
+        data += `
+            <tr>
+            <td >${i}</td>
+            <td>${listMember[i].name}</td>
+            <td id="delete" onclick="del(${i})"><button>delele</button></td>
+            <td id="update" onclick="update(${i})"><button>update</button></td>
+            <tr>
+            `
+    }
+    document.getElementById("listMember").innerHTML = data;
+}
+drawTable();
+function save(){
+    let input = document.getElementById("input");
+    listMember.push(input.value);
+    localStorage.setItem('listMember', JSON.stringify(listMember));
+    input.value = "";
+    let listMember = JSON.parse(localStorage.getItem('listMember'));
+    drawTable();
+}
+function del(i){
+    let listMember = JSON.parse(localStorage.getItem('listMember'));
+    for(i=0; i < listMember.length; i++){
+        if(listMember[i] == i){
+            listMember.splice(i, 1);
+        }
+    }
+    localStorage.setItem('listMember', JSON.stringify(listMember));   
+    drawTable();
+}
+</script>
+
+</html>

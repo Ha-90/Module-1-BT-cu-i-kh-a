@@ -12,9 +12,25 @@
 
 </body>
 <script>
+    let result;
+
     let inputStr = prompt("Hãy nhập vào 1 chuỗi");
     let strCut = inputStr.split(" ");
-    console.log(strCut);
+    // console.log(strCut);
+    for(i = 0; i < strCut.length; i++){
+        let strCutI = strCut[i].split(" ");
+        console.log(strCutI);
+    }
+
+    // strCutI[i].split("");
+    // console.log(strCutI[i]);
+    
+
+    for(i = 0; i < strCut.length; i++){
+        result = strCut[i].toUpperCase();
+        document.write(result, " ");
+        
+    }
     
     
 </script>
