@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let inputArr = [];
+    for (let x = 0; x < 5; x++){
+        inputArr[x] = prompt("Nhập vào phần tử (tối đa 5)");
+        console.log(inputArr);
+    }
+
+    let result = [];
+    result = inputArr.filter(function(value){
+        return result.includes(value) ? '': result.push(value)
+    });
+    document.write(result);
+</script>
+</html>

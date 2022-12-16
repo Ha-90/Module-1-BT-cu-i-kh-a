@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let number = [];
+    for(i = 0; i < 5; i++){
+        number[i] = prompt("Nhập vào số bất kỳ (tối đa 5 số)");
+        console.log(number);
+
+    }
+    for (x = 0; x < number.length; x++){
+        for(j = 1; j < x; j++){         
+            if(number[j] > number[x]){
+                let temp = number[j];
+                number[j] = number[x];
+                number[x] = temp;
+            }
+        }
+    }
+    document.write(number);
+</script>
+</html>
